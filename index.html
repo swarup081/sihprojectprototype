@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NirogKaaya | Smart Sanjeevani  — Wellness for all
+  </title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="Chatbot/chatbot.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+          <img src="resource/NirogLogo.png" alt="Nirogkaaya Logo" style="height: 40px; vertical-align: middle; margin-right: 10px;">
+          <span style="font-weight: bold; font-size: 1.5rem; color: #e53935;">NirogKaaya</span>
+        </div>
+        <div>
+          <button class="cta-btn" onclick="getLocation()" data-translate-key="detect_location">📍 Detect My Location</button>
+        </div>
+      </header>
+      
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1 data-translate-key="hero_title">Doctors for Rural India <br> ग्रामीण भारत के लिए डॉक्टर</h1>
+      <p data-translate-key="hero_subtitle">Smart Sanjeevani  — Wellness for all</p>
+      <div class="features">
+        <div data-translate-key="feature_time">🕒 Saves your time </div>
+        <div data-translate-key="feature_fingertips">💬 Dr at your fingertips </div>
+        <div data-translate-key="feature_prescription">📄 Get your prescription Online</div>
+      </div>
+      <button class="cta-btn" onclick="openDoctorConnectModal()" data-translate-key="connect_doctor">Connect with a Doctor</button>
+      <button class="cta-btn" ><a id="cta-btn1" href="./Safar-e-Sehat/Safaresehat.html" data-translate-key="book_safar">Book Safar-e-Sehat</a></button>
+    </div>
+    <div class="hero-image">
+        <img id="slideshow-img" src="./resource/Dr1.jpg" alt="Doctor Slideshow" />
+      </div>      
+      </div>
+      
+  </section>
+
+  <p id="location-message" style="font-weight: 700;" data-translate-key="location_message">We need to know your location <br> कृपया अपना स्थान साझा करें</p>
+
+  <div id="cards-container">
+  </div>
+
+  <div class="stats">
+    <div class="stat-box">
+      <h2>10+</h2>
+      <p data-translate-key="villages_covering">Villages Covering</p>
+    </div>
+    <div class="stat-box">
+      <h2>500+</h2>
+      <p data-translate-key="consultations"> Consultations</p>
+    </div>
+    <div class="stat-box">
+      <h2>100+</h2>
+      <p data-translate-key="specialist_doctors">Specialist Doctor Team </p>
+    </div>
+  </div>
+
+  <section class="trust-features">
+    <div class="trust-item">
+      <img src="https://img.icons8.com/color/96/000000/privacy.png" alt="Confidential"/>
+      <h3 data-translate-key="confidential_title">100% Confidential</h3>
+      <p data-translate-key="confidential_text">All consultations are private and secure. You can delete chats anytime.</p>
+    </div>
+    <div class="trust-item">
+      <img src="https://img.icons8.com/color/96/000000/medal.png" alt="Certified"/>
+      <h3 data-translate-key="certified_doctors_title">Certified Doctors</h3>
+      <p data-translate-key="certified_doctors_text">Experienced and certified professionals at your service across India.</p>
+    </div>
+    <div class="trust-item">
+      <img src="./resource/icn.png" alt="Convenient"/>
+      <h3 data-translate-key="saves_money_title">Saves Money and Free consultations</h3>
+      <p data-translate-key="saves_money_text">Consult anytime, anywhere. No queues, no waiting rooms, just care.</p>
+    </div>
+    <div class="trust-item">
+      <img src="https://img.icons8.com/color/96/000000/wallet.png" alt="Cost Effective"/>
+      <h3 data-translate-key="ayushmaan_card_title">Ayushmaan Card</h3>
+      <p data-translate-key="ayushmaan_card_text">Medicine and free consultations for Ayushmaan Card holders.</p>
+    </div>
+  </section>
+  
+  <script src="./script.js"></script>
+
+  <div id="video-call-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeVideoCallModal()">&times;</span>
+      <h2>Video Call with Doctor</h2>
+      <div id="video-call-interface">
+        <p>Connecting...</p>
+        <img src="https://media.tenor.com/images/a7b0a3c4b7e8a1f8a8f1b4c3e1b7b7a6/tenor.gif" alt="Video Call" style="width:100%">
+      </div>
+    </div>
+  </div>
+
+  <div id="chatbot-container">
+    <div id="chatbot-header">
+      <h3>AI Symptom Checker</h3>
+      <button id="close-chatbot">-</button>
+    </div>
+    <div id="chatbot-messages"></div>
+    <div id="chatbot-input">
+      <input type="text" id="user-input" placeholder="Type your message...">
+      <button id="send-message">Send</button>
+    </div>
+  </div>
+  <button id="open-chatbot">
+    <img src="./resource/doctor_logo.png" alt="Chatbot">
+  </button>
+
+  <script src="Chatbot/chatbot.js"></script>
+</body>
+</html>

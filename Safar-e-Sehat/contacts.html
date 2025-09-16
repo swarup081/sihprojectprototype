@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fffaf5;
+      color: #333;
+    }
+
+    .contact-section {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .contact-section h1 {
+      font-size: 2.5rem;
+      color: #d65a31;
+    }
+
+    .contact-section p {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .form-container {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-container input {
+      padding: 0.75rem 1rem;
+      border: 2px solid #f4a261;
+      border-radius: 8px;
+      outline: none;
+      width: 240px;
+      background-color: #fffaf5;
+    }
+
+    .form-container input:focus {
+      border-color: #e76f51;
+    }
+
+    .submit-btn {
+      padding: 0.75rem 2rem;
+      background-color: #e76f51;
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+
+    .submit-btn:hover {
+      background-color: #d65a31;
+    }
+
+    .info-section {
+      display: flex;
+      justify-content: space-around;
+      background-color: #ffe8d6;
+      padding: 2rem 1rem;
+      flex-wrap: wrap;
+    }
+
+    .info-box {
+      max-width: 250px;
+      text-align: center;
+      margin: 1rem;
+    }
+
+    .info-box img {
+      background-color: #f4a261;
+      border-radius: 50%;
+      padding: 1rem;
+      width: 60px;
+      height: 60px;
+      margin-bottom: 1rem;
+    }
+
+    .info-box h3 {
+      color: #d65a31;
+      font-size: 1.1rem;
+    }
+
+    .info-box p {
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="contact-section">
+    <h1>Contact Us</h1>
+    <p>Any questions or remarks? Just write us a message!</p>
+    <div class="form-container">
+      <input type="email" placeholder="Enter a valid email address">
+      <input type="text" placeholder="Enter your Name">
+    </div>
+    <button class="submit-btn">Submit</button>
+  </div>
+
+  <div class="info-section">
+    <div class="info-box">
+      <img src="../resource/NirogLogo.png" alt="About Club">
+      <h3>ABOUT NirogKaaya</h3>
+      <p>NirogKaaya bridges rural healthcare gaps through tech-powered solutions.<br />It offers patients access to nearby doctors and medical facilities in real-time.</p>
+    </div>
+
+    <div class="info-box">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/phone.png" alt="Phone">
+      <h3>PHONE (LANDLINE)</h3>
+      <p>+91 9443413784<br />+91 8998135402</p>
+    </div>
+
+    <div class="info-box">
+      <img src="https://img.icons8.com/ios-filled/50/ffffff/marker.png" alt="Location">
+      <h3>OUR OFFICE LOCATION</h3>
+      <p>NirogKaaya , StartUp Center<br/> NIT Silchar</p>
+    </div>
+  </div>
+</body>
+</html>
