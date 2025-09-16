@@ -28,6 +28,22 @@
             const address = data.display_name;
             output.innerHTML = `📍 Your Location:<br><strong>${address}</strong><br><br>Please register below to continue.`;
             cards.style.display = "flex";
+
+            // Translate based on location
+            const state = data.address.state;
+            let targetLanguage = 'en'; // Default to English
+
+            if (state === 'Assam') {
+              targetLanguage = 'bn'; // Bengali
+            } else if (state === 'Bihar') {
+              targetLanguage = 'bh'; // Bhojpuri
+            } else if (state === 'Punjab') {
+              targetLanguage = 'pa'; // Punjabi
+            }
+
+            if (targetLanguage !== 'en') {
+              translatePage(targetLanguage);
+            }
           })
           .catch(() => {
             output.textContent = "Could not fetch address.";
@@ -37,7 +53,14 @@
       function error() {
         output.textContent = "Permission denied or unable to retrieve location.";
       }
-      
+    }
+
+    function translatePage(languageCode) {
+      const googleTranslateElement = document.querySelector('#google_translate_element select');
+      if (googleTranslateElement) {
+        googleTranslateElement.value = languageCode;
+        googleTranslateElement.dispatchEvent(new Event('change'));
+      }
     }
   const images = [
     "./resource/Dr1.jpg",
