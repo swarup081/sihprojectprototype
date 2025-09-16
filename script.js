@@ -23,42 +23,19 @@
             "User-Agent": "NirogkaayaHealthApp/1.0"
           }
         })
-          .then(response => {
-            if (!response.ok) {
-              throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-          })
+          .then(response => response.json())
           .then(data => {
             const address = data.display_name;
             output.innerHTML = `📍 Your Location:<br><strong>${address}</strong><br><br>Please register below to continue.`;
             cards.style.display = "flex";
-            if (data.address && data.address.country_code === 'in') {
-              translatePage('hi');
-            }
           })
-          .catch(e => {
-            output.textContent = `Could not fetch address. Error: ${e.message}`;
+          .catch(() => {
+            output.textContent = "Could not fetch address.";
           });
       }
 
-      function error(err) {
-        let message = '';
-        switch (err.code) {
-          case err.PERMISSION_DENIED:
-            message = "User denied the request for Geolocation.";
-            break;
-          case err.POSITION_UNAVAILABLE:
-            message = "Location information is unavailable.";
-            break;
-          case err.TIMEOUT:
-            message = "The request to get user location timed out.";
-            break;
-          case err.UNKNOWN_ERROR:
-            message = "An unknown error occurred.";
-            break;
-        }
-        output.textContent = message;
+      function error() {
+        output.textContent = "Permission denied or unable to retrieve location.";
       }
       
     }
@@ -81,55 +58,4 @@
   }
 
   setInterval(showNextImage, 3000); // Change image every 3 seconds
-
-const videoCallModal = document.getElementById('video-call-modal');
-
-function openDoctorConnectModal() {
-  videoCallModal.style.display = 'block';
-}
-
-function closeVideoCallModal() {
-  videoCallModal.style.display = 'none';
-}
-
-window.addEventListener('click', function(event) {
-  if (event.target == videoCallModal) {
-    closeVideoCallModal();
-  }
-});
-
-const translations = {
-  hi: {
-    detect_location: '📍 मेरा स्थान पहचानें',
-    hero_title: 'ग्रामीण भारत के लिए डॉक्टर',
-    hero_subtitle: 'स्मार्ट संजीवनी - सभी के लिए कल्याण',
-    feature_time: '🕒 आपका समय बचाता है',
-    feature_fingertips: '💬 डॉक्टर आपकी उंगलियों पर',
-    feature_prescription: '📄 अपना पर्चा ऑनलाइन प्राप्त करें',
-    connect_doctor: 'डॉक्टर से जुड़ें',
-    book_safar: 'सफर-ए-सेहत बुक करें',
-    location_message: 'हमें आपके स्थान की जानकारी चाहिए <br> कृपया अपना स्थान साझा करें',
-    register_doctor: 'डॉक्टर के रूप में पंजीकरण करें',
-    find_doctor: '🙋 एक डॉक्टर खोजें',
-    villages_covering: 'गांवों को कवर करना',
-    consultations: 'परामर्श',
-    specialist_doctors: 'विशेषज्ञ डॉक्टर टीम',
-    confidential_title: '100% गोपनीय',
-    confidential_text: 'सभी परामर्श निजी और सुरक्षित हैं। आप कभी भी चैट हटा सकते हैं।',
-    certified_doctors_title: 'प्रमाणित डॉक्टर',
-    certified_doctors_text: 'पूरे भारत में आपकी सेवा में अनुभवी और प्रमाणित पेशेवर।',
-    saves_money_title: 'पैसे बचाता है और मुफ्त परामर्श',
-    saves_money_text: 'कभी भी, कहीं भी परामर्श करें। कोई कतार नहीं, कोई प्रतीक्षा कक्ष नहीं, बस देखभाल।',
-    ayushmaan_card_title: 'आयुष्मान कार्ड',
-    ayushmaan_card_text: 'आयुष्मान कार्ड धारकों के लिए दवा और मुफ्त परामर्श।',
-  }
-};
-
-function translatePage(language) {
-  document.querySelectorAll('[data-translate-key]').forEach(element => {
-    const key = element.getAttribute('data-translate-key');
-    if (translations[language] && translations[language][key]) {
-      element.innerHTML = translations[language][key];
-    }
-  });
-}
+  

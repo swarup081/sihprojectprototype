@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Health Consultation Finder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<!-- Human Animation (Top Right) -->
+<div class="human-animation" id="humanAnimation">
+  <lottie-player
+    src="https://assets4.lottiefiles.com/packages/lf20_tutvdkg0.json"
+    background="transparent"
+    speed="1"
+    loop
+    autoplay
+    style="width: 100%; height: auto;">
+  </lottie-player>
+</div>
+
+<!-- Main Form -->
+<div class="form-container" id="formContainer">
+  <h2>Find Me a Doctor</h2>
+  <form id="doctorForm">
+    <label>Name:</label>
+    <input type="text" name="name" required>
+
+    <label>Age:</label>
+    <input type="number" name="age" required>
+
+    <label>Sex:</label>
+    <select name="sex" required>
+      <option value="">Select</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+    </select>
+
+    <label>Type of Doctor Needed:</label>
+    <input type="text" name="doctorType" placeholder="e.g., Cardiologist, Dermatologist" required>
+
+    <label>Current Health Issues:</label>
+    <textarea name="healthIssues" rows="2" required></textarea>
+
+    <label>Symptoms:</label>
+    <textarea name="symptoms" rows="2"></textarea>
+
+    <label>Previous Treatments:</label>
+    <textarea name="treatments" rows="2"></textarea>
+
+    <label>Current Medications:</label>
+    <textarea name="medications" rows="2"></textarea>
+
+    <button type="submit"> <a id="finddr" href="../Final Dashboard/FinalDashboard.html"> Find Doctors</a></button>
+  </form>
+
+  <div class="results" id="resultsContainer" style="display: none;"></div>
+</div>
+
+<!-- Quote Box -->
+<div class="quote-box" id="quoteBox">“Health is the greatest gift.” – Buddha</div>
+
+<!-- Navigation Buttons -->
+<div class="nav-buttons">
+  <button onclick="" ><a id="prev" href="../Homepage/index.html"> ← Prev</button>
+</div>
+
+
+<script src="./script.js"></script>
+</body>
+</html>

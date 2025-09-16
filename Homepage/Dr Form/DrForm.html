@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doctor Information Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #fffaf0;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #ff7f50;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: 2rem auto;
+      background-color: #fff3e6;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    input[type="text"], input[type="date"], textarea, select {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .radio-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .radio-group label {
+      font-weight: normal;
+      margin-right: 1rem;
+    }
+
+    button {
+      background-color: #ff6600;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #e65c00;
+    }
+
+    .saved-message {
+      margin-top: 1rem;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://img.icons8.com/color/48/000000/stethoscope.png" alt="Medical Icon" />
+    <h1>Doctor Registration Form</h1>
+  </header>
+  <div class="form-container">
+    <form id="doctorForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="address">Address</label>
+      <textarea id="address" name="address" rows="3" required></textarea>
+
+      <label for="regNo">Medical Registration Number</label>
+      <input type="text" id="regNo" name="regNo" required />
+
+      <label for="experience">Experience (in years)</label>
+      <input type="text" id="experience" name="experience" required />
+
+      <label for="specialty">Specialty</label>
+      <input type="text" id="specialty" name="specialty" required />
+
+      <label for="education">Education Details</label>
+      <textarea id="education" name="education" rows="3" required></textarea>
+
+      <label for="dob">Date of Birth</label>
+      <input type="date" id="dob" name="dob" required />
+
+      <div class="radio-group">
+        <label>Practice Type:</label>
+        <label><input type="radio" name="practice" value="clinic" required /> Personal Clinic</label>
+        <label><input type="radio" name="practice" value="hospital" required /> Hospital</label>
+      </div>
+
+      <button type="submit"><a href="./DrPage.html">Submit </a></button>
+      <div class="saved-message" id="savedMessage"></div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('doctorForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const formData = {
+        name: document.getElementById('name').value,
+        address: document.getElementById('address').value,
+        regNo: document.getElementById('regNo').value,
+        experience: document.getElementById('experience').value,
+        specialty: document.getElementById('specialty').value,
+        education: document.getElementById('education').value,
+        dob: document.getElementById('dob').value,
+        practice: document.querySelector('input[name="practice"]:checked').value
+      };
+
+      localStorage.setItem('doctorData', JSON.stringify(formData));
+
+      document.getElementById('savedMessage').textContent = 'Doctor details saved successfully!';
+      this.reset();
+    });
+  </script>
+</body>
+</html>
